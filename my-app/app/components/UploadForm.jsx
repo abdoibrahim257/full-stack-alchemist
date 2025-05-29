@@ -6,6 +6,7 @@ const UploadForm = () => {
   const [loading, setLoading] = useState(false);
   const [transcript, setTranscript] = useState('');
   const [srtFileName, setSrtFileName] = useState('');
+  const [language, setLanguage] = useState('');
 
 
   function handelFileSelect(event) {
@@ -123,7 +124,8 @@ const UploadForm = () => {
       if (data.transcription) {
         setTranscript(data.transcription);
         setSrtFileName(data.srt_file_name);
-        console.log("language:", data.language);
+        // console.log("language:", data.language);
+        setLanguage(data.language);
         toast.success( `Transcript is now availble for ${data.filename}`, {
           position: "top-right",
           autoClose: 5000,
@@ -180,7 +182,10 @@ const UploadForm = () => {
       </div>
       
       <div className='sections'>
-        <h2 className='title'>Transcript</h2>
+        <div class="flex justify-between items-center">
+          <h2 className='title'>Transcript</h2>
+          {language && transcript && <p className='text-right text-gray-500'>Detected Language: {language}</p>}
+        </div>
         {loading && 
           <div className='flex flex-col items-center justify-center'>
             <div className="loader"></div>
@@ -193,6 +198,7 @@ const UploadForm = () => {
         {!loading && transcript && 
           <div>
             <p className='text-justify'> {transcript} </p>
+              
             <div className='flex gap-2'>
               <button
                 className='uploadBtn'

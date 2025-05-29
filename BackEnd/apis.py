@@ -14,6 +14,7 @@ import hashlib
 
 
 
+
 app = FastAPI()
 
 app.add_middleware(
@@ -100,8 +101,48 @@ async def startTranscription(file_path: str):
     
     return {
         "srt_file_name": f"srtFolder/transcript_{transcript_id}.srt",
-        "transcript_text": transcript["text"]
+        "transcript_text": transcript["text"],
+        "language_code": transcript.get("language_code")
     }
+
+# async def get_lang(file_path: str):
+
+#     with open(file_path, "rb") as f:
+#         response = requests.post(base_url + "/v2/upload", headers=headers, data=f)
+        
+#     if response.status_code != 200:
+#         print(f"Error: {response.status_code}, Response: {response.text}")
+#         response.raise_for_status()
+            
+#     upload_json = response.json()
+#     upload_url = upload_json["upload_url"]
+
+#     data = {
+#         "audio_url": upload_url, 
+#         "language_detection": True
+#     }
+
+#     url = base_url + "/v2/transcript"
+#     response = requests.post(url, json=data, headers=headers)
+
+#     transcript_id = response.json()['id']
+#     polling_endpoint = base_url + "/v2/transcript/" + transcript_id
+
+#     while True:
+#         transcription_result = requests.get(polling_endpoint, headers=headers).json()
+
+#         if transcription_result['status'] == 'completed':
+#             return transcription_result['language_code']
+
+#         elif transcription_result['status'] == 'error':
+#             raise RuntimeError(f"Transcription failed: {transcription_result['error']}")
+
+#         else:
+#             time.sleep(3)
+
+    
+
+
 
 @app.post("/uploadfile/")
 async def create_upload_file(file: UploadFile = File(...), db: Session = Depends(get_db)):
@@ -116,6 +157,8 @@ async def create_upload_file(file: UploadFile = File(...), db: Session = Depends
     
     audio_Obj = await startTranscription(file_path)
     
+    # language = await get_lang(file_path)
+    
     #save the transcription to the database
     
     # audioHash = get_file_hash(file_path)
@@ -124,7 +167,8 @@ async def create_upload_file(file: UploadFile = File(...), db: Session = Depends
     new_transcript = transcript(
         id=audioID,
         filename=file.filename,
-        transcriptTxt=audio_Obj["transcript_text"]
+        transcriptTxt=audio_Obj["transcript_text"],
+        language=audio_Obj["language_code"],
     )
     db.add(new_transcript)
     db.commit()
@@ -133,7 +177,8 @@ async def create_upload_file(file: UploadFile = File(...), db: Session = Depends
     return {
         "filename": file.filename,
         "transcription": audio_Obj["transcript_text"],
-        "srt_file_name": audio_Obj["srt_file_name"]
+        "srt_file_name": audio_Obj["srt_file_name"],
+        "language": audio_Obj["language_code"],
     }
     #save the transcription to the database
     

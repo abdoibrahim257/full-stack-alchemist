@@ -8,7 +8,7 @@ import uuid
 from datetime import datetime
 
 
-SQLALCHEMY_DATABASE_URL = 'postgresql://postgres:@localhost:5432/SentiVue'
+SQLALCHEMY_DATABASE_URL = 'postgresql://postgres:!Abd0!0138415047@localhost:5432/SentiVue'
 
 engine = create_engine(SQLALCHEMY_DATABASE_URL)
 
