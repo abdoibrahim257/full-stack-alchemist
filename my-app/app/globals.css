@@ -1,0 +1,52 @@
+@import "tailwindcss";
+
+
+
+body{
+    background-color: #E6F2F7;
+}
+
+.uploadBtn{
+    @apply w-40 h-10 mt-[1rem] rounded-lg font-semibold bg-blue-50 text-blue-700 hover:cursor-pointer hover:bg-blue-100 self-end
+    transition-colors duration-200 ease-in-out;
+}
+
+.uploadBtn:active{
+    @apply bg-blue-200;
+    box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.3);
+}
+
+.uploadBtn-off{
+    @apply w-40 h-10 mt-[1rem] rounded-lg font-semibold bg-gray-200 text-gray-400 cursor-not-allowed self-end
+}
+
+.title{
+    @apply text-3xl font-medium;
+}
+
+.sections{
+    @apply w-1/2 shadow-lg rounded-lg p-5 flex flex-col bg-white gap-4;
+}
+
+
+
+
+
+.loader {
+  width: 45px;
+  aspect-ratio: .75;
+  --c: no-repeat linear-gradient(#000 0 0);
+  background: 
+    var(--c) 0%   50%,
+    var(--c) 50%  50%,
+    var(--c) 100% 50%;
+  animation: l7 1s infinite linear alternate;
+}
+@keyframes l7 {
+  0%  {background-size: 20% 50% ,20% 50% ,20% 50% }
+  20% {background-size: 20% 20% ,20% 50% ,20% 50% }
+  40% {background-size: 20% 100%,20% 20% ,20% 50% }
+  60% {background-size: 20% 50% ,20% 100%,20% 20% }
+  80% {background-size: 20% 50% ,20% 50% ,20% 100%}
+  100%{background-size: 20% 50% ,20% 50% ,20% 50% }
+}

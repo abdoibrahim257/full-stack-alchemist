@@ -1,0 +1,236 @@
+1
+00:00:00,080 --> 00:00:01,920
+Hello everyone. Accurate and
+
+2
+00:00:02,000 --> 00:00:04,320
+efficient diagnosis is crucial
+
+3
+00:00:04,400 --> 00:00:05,600
+in healthcare for medical
+
+4
+00:00:05,680 --> 00:00:08,000
+professionals and patients. Our
+
+5
+00:00:08,080 --> 00:00:09,760
+innovative application, MD
+
+6
+00:00:09,840 --> 00:00:11,840
+Vision, aims to revolutionize
+
+7
+00:00:11,920 --> 00:00:12,960
+the diagnostic process,
+
+8
+00:00:13,200 --> 00:00:15,520
+combining advanced technologies
+
+9
+00:00:15,600 --> 00:00:17,760
+with a user-friendly interface.
+
+10
+00:00:18,000 --> 00:00:19,680
+The core of MD Vision is our
+
+11
+00:00:19,760 --> 00:00:21,440
+powerful medical image captioner
+
+12
+00:00:21,520 --> 00:00:23,680
+module. Users can upload chest
+
+13
+00:00:23,760 --> 00:00:26,080
+X-ray images and our advanced
+
+14
+00:00:26,160 --> 00:00:28,480
+model extracts visual features,
+
+15
+00:00:28,980 --> 00:00:29,320
+outputting tags. These tags are
+
+16
+00:00:29,400 --> 00:00:31,320
+then fed into AI models top
+
+17
+00:00:31,820 --> 00:00:32,760
+produce detailed, highly
+
+18
+00:00:33,260 --> 00:00:34,120
+probable impressions and
+
+19
+00:00:34,200 --> 00:00:35,640
+findings. For medical
+
+20
+00:00:36,140 --> 00:00:36,760
+professionals, this
+
+21
+00:00:36,840 --> 00:00:38,440
+comprehensive approach provides
+
+22
+00:00:38,520 --> 00:00:40,280
+valuable insights, enabling
+
+23
+00:00:40,360 --> 00:00:41,800
+informed decisions and better
+
+24
+00:00:42,040 --> 00:00:43,800
+patient care. For patients,
+
+25
+00:00:44,120 --> 00:00:45,480
+this module is equally
+
+26
+00:00:45,560 --> 00:00:46,680
+important, helping them
+
+27
+00:00:46,760 --> 00:00:48,280
+understand their medical images
+
+28
+00:00:48,440 --> 00:00:49,480
+and know more about their
+
+29
+00:00:49,560 --> 00:00:51,000
+condition. Complementing the
+
+30
+00:00:51,500 --> 00:00:52,280
+image captioner is our
+
+31
+00:00:52,780 --> 00:00:53,880
+intelligent chatbot module,
+
+32
+00:00:54,360 --> 00:00:55,800
+Designed to benefit both medical
+
+33
+00:00:55,880 --> 00:00:57,800
+professionals and patients. For
+
+34
+00:00:57,960 --> 00:00:59,800
+providers, our system follows
+
+35
+00:00:59,880 --> 00:01:00,920
+carefully designed decision
+
+36
+00:01:01,320 --> 00:01:04,040
+trees, asking yes/no questions
+
+37
+00:01:04,120 --> 00:01:05,160
+to gather patient information,
+
+38
+00:01:05,880 --> 00:01:06,680
+narrowing down the
+
+39
+00:01:06,760 --> 00:01:08,440
+possibilities, and providing the
+
+40
+00:01:08,520 --> 00:01:09,640
+most likely differential
+
+41
+00:01:09,720 --> 00:01:11,800
+diagnoses. For patients, the
+
+42
+00:01:11,880 --> 00:01:13,480
+chatbot serves as a friendly
+
+43
+00:01:13,980 --> 00:01:14,760
+guide, helping them understand
+
+44
+00:01:15,160 --> 00:01:16,680
+their symptoms and potentially
+
+45
+00:01:16,760 --> 00:01:18,040
+underlying causes through an
+
+46
+00:01:18,120 --> 00:01:20,040
+interactive Q&A process.
+
+47
+00:01:20,780 --> 00:01:22,780
+Promoting Active Involvement in
+
+48
+00:01:22,860 --> 00:01:25,020
+Their Healthcare Journey: MD
+
+49
+00:01:25,100 --> 00:01:26,620
+Vision offers ease of use,
+
+50
+00:01:26,860 --> 00:01:27,900
+increased patient engagement,
+
+51
+00:01:28,140 --> 00:01:29,340
+and room for continuous
+
+52
+00:01:29,420 --> 00:01:30,140
+improvement to support more
+
+53
+00:01:30,220 --> 00:01:31,900
+medical imaging modalities and
+
+54
+00:01:31,980 --> 00:01:33,980
+diagnostic areas. Leveraging
+
+55
+00:01:34,060 --> 00:01:36,060
+cutting-edge technology and
+
+56
+00:01:36,140 --> 00:01:37,660
+prioritizing user experience,
+
+57
+00:01:37,900 --> 00:01:39,900
+MD Vision empowers accurate and
+
+58
+00:01:39,980 --> 00:01:41,180
+timely healthcare solutions for
+
+59
+00:01:41,260 --> 00:01:42,940
+medical professionals and
+

@@ -8,7 +8,7 @@ import uuid
 from datetime import datetime
 
 
-SQLALCHEMY_DATABASE_URL = 'postgresql://postgres:!Abd0!0138415047@localhost:5432/SentiVue'
+SQLALCHEMY_DATABASE_URL = 'postgresql://postgres:@localhost:5432/SentiVue'
 
 engine = create_engine(SQLALCHEMY_DATABASE_URL)
 
@@ -34,11 +34,8 @@ class user(Base):
 class transcript(Base):
     __tablename__ = 'transcripts'
     
-    id = Column(UUID(as_uuid=True), primary_key=True, index=True, default=uuid.uuid4)
+    id = Column(UUID(as_uuid=True), primary_key=True)
+    # fileHash = Column(String, primary_key=True)
     filename = Column(String, nullable=False)
     transcriptTxt = Column(String, nullable=False)
-    sentiment_score = Column(Float, nullable=True)
-    sentiment_label = Column(String, nullable=True)
-    speaker_count = Column(Integer, default=1)
-    duration = Column(Float, nullable=True)
-    created_at = Column(DateTime, default=datetime.utcnow)
+    language = Column(String, nullable=True)
