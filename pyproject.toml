@@ -1,0 +1,6 @@
+[project]
+name = "senti-backend"
+version = "0.1.0"
+description = "FastAPI backend"
+dependencies = []
+requires-python = ">=3.8"
