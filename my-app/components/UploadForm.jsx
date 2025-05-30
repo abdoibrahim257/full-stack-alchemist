@@ -9,7 +9,7 @@ const UploadForm = () => {
   const [language, setLanguage] = useState('');
 
   // Use environment variable for API URL
-  const API_URL = "https://full-stack-alchemist-production.up.railway.app/";
+  const API_URL = "https://full-stack-alchemist-production.up.railway.app";
 
   function handelFileSelect(event) {
     const file = event.target.files[0];
