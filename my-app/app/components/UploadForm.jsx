@@ -5,7 +5,7 @@ const UploadForm = () => {
   const [audioFile, setAudioFile] = useState(null);
   const [loading, setLoading] = useState(false);
   const [transcript, setTranscript] = useState('');
-  const [srtFileName, setSrtFileName] = useState('');
+  const [transID, setTransID] = useState('');
   const [language, setLanguage] = useState('');
 
 
@@ -32,7 +32,7 @@ const UploadForm = () => {
   }
 
   function exportToSRT() {
-    if (!srtFileName) {
+    if (!transID) {
       toast.error('No SRT file name available', {
         position: "top-right",
         autoClose: 5000,
@@ -46,7 +46,7 @@ const UploadForm = () => {
       return;
     }
 
-    fetch(`http://localhost:8000/getSRT/${srtFileName}`, {
+    fetch(`http://localhost:8000/getSRT/${transID}`, {
       method: 'GET',
       headers: {
         'Accept': 'application/srt',
@@ -61,6 +61,7 @@ const UploadForm = () => {
     .then(blob => {
       const url = window.URL.createObjectURL(blob);
       const a = document.createElement('a');
+      const srtFileName = `srtFolder/transcript_${transID}.srt`;
       a.href = url;
       a.download = srtFileName;
       document.body.appendChild(a);
@@ -100,11 +101,10 @@ const UploadForm = () => {
     
     const formData = new FormData();
     formData.append('file', audioFile);
-
+    setTranscript(''); // Clear previous transcript
 
     ///enable boolean to start loading
     setLoading(true);
-
 
     fetch('http://localhost:8000/uploadfile', {
       headers: {
@@ -123,9 +123,9 @@ const UploadForm = () => {
       console.log('Response data:', data);
       if (data.transcription) {
         setTranscript(data.transcription);
-        setSrtFileName(data.srt_file_name);
-        // console.log("language:", data.language);
+        setTransID(data.transcript_id);
         setLanguage(data.language);
+
         toast.success( `Transcript is now availble for ${data.filename}`, {
           position: "top-right",
           autoClose: 5000,
@@ -137,6 +137,7 @@ const UploadForm = () => {
           theme: "light",
         });
       }
+
       setLoading(false);
 
     }
@@ -182,7 +183,7 @@ const UploadForm = () => {
       </div>
       
       <div className='sections'>
-        <div class="flex justify-between items-center">
+        <div className="flex justify-between items-center">
           <h2 className='title'>Transcript</h2>
           {language && transcript && <p className='text-right text-gray-500'>Detected Language: {language}</p>}
         </div>

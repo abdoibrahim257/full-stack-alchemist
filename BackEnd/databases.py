@@ -35,7 +35,7 @@ class transcript(Base):
     __tablename__ = 'transcripts'
     
     id = Column(UUID(as_uuid=True), primary_key=True)
-    # fileHash = Column(String, primary_key=True)
+    fileHash = Column(String(length=64), nullable=False, unique=True)
     filename = Column(String, nullable=False)
     transcriptTxt = Column(String, nullable=False)
     language = Column(String, nullable=True)
