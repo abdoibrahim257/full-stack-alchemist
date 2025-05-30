@@ -7,8 +7,13 @@ from sqlalchemy.dialects.postgresql import UUID
 import uuid
 from datetime import datetime
 
+import os
+from dotenv import load_dotenv
 
-SQLALCHEMY_DATABASE_URL = 'postgresql://postgres:!Abd0!0138415047@localhost:5432/SentiVue'
+load_dotenv()
+
+
+SQLALCHEMY_DATABASE_URL = os.getenv("DATABASE_URL")
 
 engine = create_engine(SQLALCHEMY_DATABASE_URL)
 

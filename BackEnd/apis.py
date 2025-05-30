@@ -12,14 +12,11 @@ import requests
 import time
 import hashlib
 
-
-
-
 app = FastAPI()
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:3000"],  # Allows all origins
+    allow_origins=["*"],  # Allows all origins
     allow_credentials=True,
     allow_methods=["*"],  # Allows all methods
     allow_headers=["*"],  # Allows all headers
@@ -36,7 +33,7 @@ class file_in(BaseModel):
 Base.metadata.create_all(bind=engine)
 
 base_url = "https://api.assemblyai.com"
-headers = {"authorization": "e6b18f7fa9a6481ca4cad0e90b489ea6"}
+headers = {"authorization": os.getenv("ASSEMBLYAI_API_KEY")}
 
 @app.get("/")
 async def root():
