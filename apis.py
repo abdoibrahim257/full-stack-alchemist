@@ -13,12 +13,9 @@ import time
 import hashlib
 
 app = FastAPI()
-origins = [
-    "https://full-stack-alchemist.vercel.app",
-    "http://localhost:3000"  # Keep for local development
-]
+
 app.add_middleware(
-    allow_origins=origins,  # Allows all origins
+    allow_origins=["*"],  # Allows all origins
     allow_credentials=True,
     allow_methods=["*"],  # Allows all methods
     allow_headers=["*"],  # Allows all headers
