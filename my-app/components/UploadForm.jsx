@@ -9,7 +9,7 @@ const UploadForm = () => {
   const [language, setLanguage] = useState('');
 
   // Use environment variable for API URL
-  const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3001';
+  const API_URL = process.env.NEXT_PUBLIC_API_URL;
 
   function handelFileSelect(event) {
     const file = event.target.files[0];

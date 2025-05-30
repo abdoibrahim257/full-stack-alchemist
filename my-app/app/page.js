@@ -1,7 +1,7 @@
 "use client";
 import React from 'react';
-import Form from './components/Form';
-import UploadForm from './components/UploadForm';
+import Form from '../components/Form';
+import UploadForm from '../components/UploadForm';
 
 export default function Home() {
   return (
