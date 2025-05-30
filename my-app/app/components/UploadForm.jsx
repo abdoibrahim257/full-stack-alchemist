@@ -8,15 +8,15 @@ const UploadForm = () => {
   const [transID, setTransID] = useState('');
   const [language, setLanguage] = useState('');
 
+  // Use environment variable for API URL
+  const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3001';
 
   function handelFileSelect(event) {
     const file = event.target.files[0];
     if (file && file.type.startsWith('audio/')) {
       setAudioFile(file);
       console.log("Selected file:", file);
-      // You can add further processing here, like uploading the file to a server
     } else {
-      // alert("Please select a valid audio file.");
       toast.error('incorrect file format', {
         position: "top-right",
         autoClose: false,
@@ -46,7 +46,7 @@ const UploadForm = () => {
       return;
     }
 
-    fetch(`https://full-stack-alchemist-production.up.railway.app/getSRT/${transID}`, {
+    fetch(`${API_URL}/getSRT/${transID}`, {
       method: 'GET',
       headers: {
         'Accept': 'application/srt',
@@ -95,18 +95,13 @@ const UploadForm = () => {
   }
 
   function handleAudioSubmit(){
-    // console.log("Audio file submitted:", audioFile);
-    // need to send this audio file to the server for transcription
-    // console.log("Audio file submitted:", audioFile);
-    
     const formData = new FormData();
     formData.append('file', audioFile);
     setTranscript(''); // Clear previous transcript
 
-    ///enable boolean to start loading
     setLoading(true);
 
-    fetch('https://full-stack-alchemist-production.up.railway.app/uploadfile', {
+    fetch(`${API_URL}/uploadfile`, {
       headers: {
         'Accept': 'application/json',
       },
