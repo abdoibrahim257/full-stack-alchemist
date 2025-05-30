@@ -1,4 +1,3 @@
-'use client'
 import React, {useState} from 'react'
 import { ToastContainer, toast } from 'react-toastify';
 
@@ -10,6 +9,7 @@ const UploadForm = () => {
   const [language, setLanguage] = useState('');
 
   // Use environment variable for API URL
+  const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3001';
 
   function handelFileSelect(event) {
     const file = event.target.files[0];
@@ -46,7 +46,7 @@ const UploadForm = () => {
       return;
     }
 
-    fetch(`https://full-stack-alchemist-production.up.railway.app/getSRT/${transID}`, {
+    fetch(`${API_URL}/getSRT/${transID}`, {
       method: 'GET',
       headers: {
         'Accept': 'application/srt',
@@ -101,7 +101,7 @@ const UploadForm = () => {
 
     setLoading(true);
 
-    fetch(`https://full-stack-alchemist-production.up.railway.app/uploadfile`, {
+    fetch(`${API_URL}/uploadfile`, {
       headers: {
         'Accept': 'application/json',
       },
