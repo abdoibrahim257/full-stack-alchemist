@@ -45,8 +45,8 @@ const UploadForm = () => {
       });
       return;
     }
-
-    fetch(`https://full-stack-alchemist-production.up.railway.app/getSRT/${transID}`, {
+    const API_URL = process.env.NEXT_PUBLIC_API_URL
+    fetch(`${API_URL}/getSRT/${transID}`, {
       method: 'GET',
       headers: {
         'Accept': 'application/srt',
@@ -103,10 +103,11 @@ const UploadForm = () => {
     formData.append('file', audioFile);
     setTranscript(''); // Clear previous transcript
 
+    const API_URL = process.env.NEXT_PUBLIC_API_URL
     ///enable boolean to start loading
     setLoading(true);
 
-    fetch('https://full-stack-alchemist-production.up.railway.app/uploadfile', {
+    fetch(`${API_URL}/uploadfile`, {
       headers: {
         'Accept': 'application/json',
       },
