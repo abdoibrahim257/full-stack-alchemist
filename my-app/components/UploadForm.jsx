@@ -9,7 +9,7 @@ const UploadForm = () => {
   const [language, setLanguage] = useState('');
 
   // Use environment variable for API URL
-  // const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3001';
+  const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3001';
 
   function handelFileSelect(event) {
     const file = event.target.files[0];
@@ -46,7 +46,7 @@ const UploadForm = () => {
       return;
     }
 
-    fetch(`${NEXT_PUBLIC_API_URL}/getSRT/${transID}`, {
+    fetch(`${API_URL}/getSRT/${transID}`, {
       method: 'GET',
       headers: {
         'Accept': 'application/srt',
@@ -101,7 +101,7 @@ const UploadForm = () => {
 
     setLoading(true);
 
-    fetch(`${NEXT_PUBLIC_API_URL}/uploadfile`, {
+    fetch(`${API_URL}/uploadfile`, {
       headers: {
         'Accept': 'application/json',
       },
