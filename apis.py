@@ -107,7 +107,7 @@ async def startTranscription(file_path: str):
     }
 
 
-@app.post("/uploadfile/")
+@app.post("/uploadfile")
 async def create_upload_file(file: UploadFile = File(...), db: Session = Depends(get_db)):
     contents = await file.read()
     
