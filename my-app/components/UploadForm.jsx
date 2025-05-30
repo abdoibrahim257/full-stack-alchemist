@@ -157,7 +157,7 @@ const UploadForm = () => {
       <ToastContainer />
       <div className='sections'>
         <h2 className='title'>Upload Audio</h2>
-        <div className='w-7/8 h-50 border-2 border-dashed border-gray-300 rounded-lg p-4 flex flex-col items-center justify-center self-center space-y-4'>
+        <div className='upload-area'>
           {!audioFile && <img src='upload.svg' width={60} height={60}></img>}
           {audioFile && (
             <div className='text-center'>
@@ -165,8 +165,9 @@ const UploadForm = () => {
               <p className='text-sm text-gray-500'>Size: {(audioFile.size / 1024).toFixed(2)} KB</p>
             </div>
           )}
-          <label htmlFor="audioInput" className='font-medium text-sky-600 hover:cursor-pointer'>upload file from device</label>
+          <label htmlFor="audioInput" className='hardcodedMarginReset font-medium text-sky-600 hover:cursor-pointer'>upload file from device</label>
           <input id="audioInput" type="file" accept="audio/*" style={{display: "none"}} onChange={handelFileSelect}/>
+          <p className='text-[0.7rem] text-gray-500 md:text-base'>Supported formats: mp3 mp4 wav m4a..etc</p>
         </div>
         <button
           className={audioFile && !loading ? "uploadBtn" : "uploadBtn-off"}
@@ -180,7 +181,7 @@ const UploadForm = () => {
       <div className='sections'>
         <div className="flex justify-between items-center">
           <h2 className='title'>Transcript</h2>
-          {language && transcript && <p className='text-right text-gray-500'>Detected Language: {language}</p>}
+          {language && transcript && <p className='text-right text-gray-500 text-xs sm:text-sm md:text-base'>Detected Language: {language}</p>}
         </div>
         {loading && 
           <div className='flex flex-col items-center justify-center'>
@@ -193,7 +194,7 @@ const UploadForm = () => {
         {!loading && audioFile && !transcript && <p className='text-center text-gray-500'>Your transcript will appear here after processing.</p>}
         {!loading && transcript && 
           <div>
-            <p className='text-justify'> {transcript} </p>
+            <p className='transcript'> {transcript} </p>
               
             <div className='flex gap-2'>
               <button

@@ -6,6 +6,17 @@ body{
     background-color: #E6F2F7;
 }
 
+.header{
+  @apply text-4xl font-bold text-gray-800;
+}
+
+.instruction{
+  @apply text-lg text-gray-600;
+}
+.hardcodedMarginReset{
+  margin: 0;
+}
+
 .uploadBtn{
     @apply w-40 h-10 mt-[1rem] rounded-lg font-semibold bg-blue-50 text-blue-700 hover:cursor-pointer hover:bg-blue-100 self-end
     transition-colors duration-200 ease-in-out;
@@ -20,6 +31,10 @@ body{
     @apply w-40 h-10 mt-[1rem] rounded-lg font-semibold bg-gray-200 text-gray-400 cursor-not-allowed self-end
 }
 
+.transcript{
+  text-align: justify;
+}
+
 .title{
     @apply text-3xl font-medium;
 }
@@ -28,7 +43,60 @@ body{
     @apply w-1/2 shadow-lg rounded-lg p-5 flex flex-col bg-white gap-4;
 }
 
+.upload-area{
+    @apply w-7/8 h-50 border-2 border-dashed border-gray-300 rounded-lg p-4 flex flex-col items-center justify-center self-center space-y-4;
+}
 
+@media screen and (max-width: 1000px) {
+    .sections {
+        @apply w-3/4;
+    }
+    .header {
+        @apply text-3xl;
+    }
+    .instruction{
+        @apply text-base;
+    }
+  
+}
+
+@media screen and (max-width: 600px) {
+    .sections {
+        @apply w-[90%];
+    }
+    .title {
+        @apply text-2xl;
+    }
+    .header {
+        @apply text-2xl;
+    }
+    .instruction{
+        @apply text-sm;
+    }
+  
+}
+
+@media screen and (max-width: 400px) {
+    .upload-area{
+        @apply w-full h-40;
+    }
+    .uploadBtn{
+        @apply w-32 h-8;
+    }
+    .uploadBtn-off{
+        @apply w-32 h-8;
+    }
+    .title {
+        @apply text-xl;
+    }
+    .header {
+        @apply text-xl;
+    }
+    .transcript{
+        @apply text-sm;
+    }
+
+}
 
 
 
