@@ -46,7 +46,7 @@ const UploadForm = () => {
       return;
     }
 
-    fetch(`https://full-stack-alchemist-production.up.railway.app/getSRT/${transID}`, {
+    fetch(`${NEXT_PUBLIC_API_URL}/getSRT/${transID}`, {
       method: 'GET',
       headers: {
         'Accept': 'application/srt',
@@ -101,7 +101,7 @@ const UploadForm = () => {
 
     setLoading(true);
 
-    fetch(`https://full-stack-alchemist-production.up.railway.app/uploadfile`, {
+    fetch(`${NEXT_PUBLIC_API_URL}/uploadfile`, {
       headers: {
         'Accept': 'application/json',
       },
